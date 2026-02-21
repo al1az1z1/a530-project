@@ -2,32 +2,80 @@
 <html>
 <head>
   <meta charset="utf-8" />
-  <title>LLM Narrative</title>
+  <title>Gemini LLM Narrative</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 16px; }
-    .box { border: 1px solid #ddd; padding: 12px; border-radius: 10px; }
-    .cursor { display:inline-block; width:10px; animation: blink 1s step-end infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #e8f5e9; /* light green */
+    }
+
+    .box {
+      background-color: #ffffff;
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 600px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      border-left: 6px solid #43a047;
+    }
+
+    .header {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      color: #2e7d32;
+    }
+
+    .robot {
+      font-size: 28px;
+      margin-right: 8px;
+    }
+
+    #text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .cursor {
+      display:inline-block;
+      width:10px;
+      animation: blink 1s step-end infinite;
+      color: #2e7d32;
+    }
+
+    @keyframes blink { 
+      50% { opacity: 0; } 
+    }
   </style>
 </head>
 <body>
+
   <div class="box">
+    <div class="header">
+      <span class="robot">🤖😎</span>
+      Gemini LLM Monitoring Assistant
+    </div>
+
     <div id="text"></div><span class="cursor">▍</span>
   </div>
 
   <script>
     const params = new URLSearchParams(location.search);
     const msg = params.get("msg") ||
-      "Status: Normal. CO₂ stable. PM2.5 low. Predicted alarm probability is 0.12. No action needed.";
+      "Hello, I am Gemini LLM Monitoring Assistant. I am analyzing the latest IoT sensor readings. CO₂ levels are stable, PM2.5 is within normal range, and the predicted alarm probability is low. The system is operating safely at this time.";
 
     const el = document.getElementById("text");
     let i = 0;
 
     function type() {
       el.textContent = msg.slice(0, i++);
-      if (i <= msg.length) setTimeout(type, 18); // typing speed
+      if (i <= msg.length) setTimeout(type, 18);
     }
+
     type();
   </script>
+
 </body>
 </html>
