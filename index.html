@@ -36,6 +36,7 @@
       font-size: 16px;
       line-height: 1.6;
       color: #333;
+      white-space: pre-line;
     }
 
     .cursor {
@@ -62,9 +63,15 @@
   </div>
 
   <script>
-    const params = new URLSearchParams(location.search);
-    const msg = params.get("msg") ||
-      "Hello, I am Gemini LLM Monitoring Assistant. I am analyzing the latest IoT sensor readings. CO₂ levels are stable, PM2.5 is within normal range, and the predicted alarm probability is low. The system is operating safely at this time.";
+    const msg = `Hi dear customer,
+
+At 07:12:16 AM (Pacific), your home readings show very cold temperature (-20.85°C) and very dry air (12.76% humidity).
+
+The 5-minute forecast suggests temperature may rise to -13.02°C and humidity to 13.79%, which is a small improvement but still cold and dry.
+
+The estimated alarm probability is 8.95%, which indicates low risk right now.
+
+Recommendation: Continue monitoring; if conditions change quickly, increase ventilation and check the sensor environment.`;
 
     const el = document.getElementById("text");
     let i = 0;
